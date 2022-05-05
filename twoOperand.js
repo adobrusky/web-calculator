@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   $('.operator').click(function() {
     let screen = $('.screen').text();
-    if (screen.length > 0 && screen[screen.length - 1] != ' ' && !operatorChosen) {
+    if (screen.length > 0 && screen[screen.length - 1] != ' ' && !operatorChosen && screen[screen.length - 1] != "-") {
       $('.screen').text($('.screen').text() + " " + $(this).html() + " ");
       operatorChosen = true;
     }
@@ -36,8 +36,8 @@ $(document).ready(function() {
 
 function compute(screen) {
   let screenArray = screen.split(" ");
-  let operand1 = (screenArray[0] ==	"\u03C0") ? Math.PI : parseInt(screenArray[0]);
-  let operand2 = (screenArray[2] ==	"\u03C0") ? Math.PI : parseInt(screenArray[2]);
+  let operand1 = (screenArray[0] ==	"\u03C0") ? Math.PI : screenArray[0];
+  let operand2 = (screenArray[2] ==	"\u03C0") ? Math.PI : screenArray[2];
   let answer = operand1;
   switch(screenArray[1]) {
     case "+":
